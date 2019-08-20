@@ -4,7 +4,7 @@ This is a containerized Terraform CLI based on `anand000/docker-aws-cli`.
 
 > This container includes the AWS CLI.
 
-[![DockerHub Badge](http://dockeri.co/image/anand000/docker-terraform-cli)](https://hub.docker.com/r/anand000/docker-terraform-cli/)
+[![DockerHub Badge](http://dockeri.co/image/anand000/docker-terraform-cli)](https://hub.docker.com/r/anand000/docker-terraform-11.4-cli/)
 
 ## Example build
 
