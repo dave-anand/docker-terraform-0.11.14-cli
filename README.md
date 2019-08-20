@@ -9,7 +9,7 @@ This is a containerized Terraform CLI based on `anand000/docker-aws-cli`.
 ## Example build
 
 ```
-docker build -t anand000/docker-terraform-11.4-cli .
+docker build -t anand000/docker-terraform-11.14-cli .
 ```
 
 ## Example usage

@@ -7,7 +7,7 @@ RUN \
     jq -r -M '.current_version')/terraform_$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | \
     jq -r -M '.current_version')_linux_amd64.zip") \
     && export TERRAFORM_CHECKSUM=$( \
-    curl https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.4_SHA256SUMS | \
+    curl https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.14_SHA256SUMS | \
     grep linux_amd64.zip | \
     awk '{print $1}') \
     && curl -o /tmp/terraform.zip $TERRAFORM_CURRENT_BIN \
