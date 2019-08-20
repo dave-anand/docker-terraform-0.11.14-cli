@@ -1,16 +1,13 @@
 FROM anand000/docker-aws-cli
 
-# Terraform
+# Get - Terraform
 RUN \
-    export TERRAFORM_CURRENT_BIN=$( \
-    echo "https://releases.hashicorp.com/terraform/$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | \
-    jq -r -M '.current_version')/terraform_$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | \
-    jq -r -M '.current_version')_linux_amd64.zip") \
+    export TERRAFORM_VERSION=0.11.14 \
     && export TERRAFORM_CHECKSUM=$( \
-    curl https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.14_SHA256SUMS | \
+    curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_SHA256SUMS | \
     grep linux_amd64.zip | \
     awk '{print $1}') \
-    && curl -o /tmp/terraform.zip $TERRAFORM_CURRENT_BIN \
+    && curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip\
     && echo "$TERRAFORM_CHECKSUM  /tmp/terraform.zip" | sha256sum -c - \
     && unzip /tmp/terraform.zip -d /usr/local/bin \
     && rm /tmp/terraform.zip
@@ -19,4 +16,5 @@ RUN \
 ENV TF_DATA_DIR "/root/.terraform"
 COPY dot_terraformrc /root/.terraformrc
 
+# Entrypoint
 ENTRYPOINT /bin/bash
