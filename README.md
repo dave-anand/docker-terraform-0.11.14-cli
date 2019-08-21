@@ -42,7 +42,7 @@ docker run --name docker-terraform-cli \
 > While this is obviously a very simple example, more complex usage, particularly in a CI/CD pipeline, is possible.
 
 ```
-docker exec -it docker-terraform-cli terraform --version 
+docker exec -it docker-terraform-0.11.14-cli terraform --version 
 ```
 
 ## References
